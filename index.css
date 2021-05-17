@@ -1,0 +1,80 @@
+:root {
+    font-size: 62.5%; 
+ /* Main Color */
+ --primary-color: #00832C;
+
+ 
+ /* Secondary Color */
+ --secondary-color: #585858c7;
+ 
+ /* Secondary Color Modified */
+ --secondary-color-m: #ff94088e;
+ 
+ /* tertiary color */
+ --tertiary-color: #017374;
+ 
+ /* tertiary color modified */
+ --tertiary-color-m: #01727498;
+ }
+
+header{
+    background-color: var(--primary-color);
+    display: flex;
+    padding: 2rem;
+    justify-content: center;
+    
+}
+
+header input, button{
+    margin: 0.2rem;
+}
+
+#maestro{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: var(--tertiary-color);
+}
+
+ /* CARTA */
+.w3-container-noticia{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 35rem;
+    height: 45rem;
+    background-color: var(--secondary-color);
+    margin: 2rem;
+    box-shadow: 10px 5px 5px black;
+}
+
+.w3-container-noticia img{
+    margin-top: 2rem;
+    width: 300px;
+    height: 400px;
+}
+
+.w3-container-noticia button{
+    border-radius: 4px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+}
+
+#miimagen{
+    width: 100vw;
+    height: 100vh;
+}
+
+#pagsig{
+    margin-left: 100px;
+    border-radius: 12px;
+}
+
+.w3-container{
+    background-color: var(--tertiary-color-m);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+}
