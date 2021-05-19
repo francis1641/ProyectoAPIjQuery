@@ -93,7 +93,7 @@ function loadDoc(url){
     
         console.log( "Sample of data:", misDatos);
         $("#miimagen").attr("style", "display: none");
-      // misDatos= JSON.parse(this.responseText);
+
        //hacer con ajax el bucle for  
         for(let i=0;i<misDatos.articles.length;i++){
         crearCard(misDatos.articles[i]);
@@ -101,16 +101,15 @@ function loadDoc(url){
     });
 }
 
-
 //
 
 function mostrarTitulo(datos){
     div=document.createElement("div");
-    document.body.appendChild(div);
+    $("body").append(div);
     for(i=0;i<datos.articles.length;i++){
         li=document.createElement("li");
         li.innerHTML= datos.articles[i].title;
-        div.appendChild(li);
+        div.append(li);
 
     }
 }
@@ -125,18 +124,19 @@ function crearCard(noticia){
   if(noticia.urlToImage==null)
     img.setAttribute("src", "img/imagennodisponible.png");
   else 
-    img.setAttribute("src", noticia.urlToImage); 
+  img.setAttribute("src", noticia.urlToImage); 
   boton=document.createElement("button");
   boton.addEventListener("click",()=>mostrarDetalle(noticia),false )
   boton.innerHTML="Más información";
   titulo=document.createElement("h3");
   titulo.innerHTML= noticia.title; 
 
-  divpadre.appendChild(titulo);
-  divpadre.appendChild(img);
-  divpadre.appendChild(boton);
-  maestro= document.getElementById("maestro");
-  maestro.appendChild(divpadre);
+  divpadre.append(titulo);
+  divpadre.append(img);
+  divpadre.append(boton);
+  $("#maestro").append(divpadre);
+  //maestro= document.getElementById("maestro");
+  // maestro.append(divpadre);
 }
 
 
