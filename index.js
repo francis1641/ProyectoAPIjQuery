@@ -97,6 +97,8 @@ function loadDoc(url){
        //hacer con ajax el bucle for  
         for(let i=0;i<misDatos.articles.length;i++){
         crearCard(misDatos.articles[i]);
+
+        //mostrarTitulo(misDatos);
       } 
     });
 }
@@ -104,37 +106,64 @@ function loadDoc(url){
 //
 
 function mostrarTitulo(datos){
-    div=document.createElement("div");
-    $("body").append(div);
-    for(i=0;i<datos.articles.length;i++){
-        li=document.createElement("li");
-        li.innerHTML= datos.articles[i].title;
-        div.append(li);
 
-    }
+  /*div=document.createElement("div");
+  document.body.appendChild(div);*/
+  midiv=$("<div></div>");
+  //$("body").append("<div ></div>")
+  $.each(datos.articles, (i)=>{
+  midiv.append("<li>"+datos.articles[i].title+"</li>");
+});
+
+/*   for(i=0;i<datos.articles.length;i++){
+      /*li=document.createElement("li");
+      li.innerHTML= datos.articles[i].title;
+      midiv.append("<li>"+datos.articles[i].title+"</li>");
+
+  } */
+  midiv.appendTo("body");
 }
 
 function crearCard(noticia){
 
-  divpadre=document.createElement("div");
-  divpadre.setAttribute("class", "w3-container-noticia");
-  divpadre.setAttribute("id", "w3-container");
+  divpadre=$("<div class='w3-container-noticia' id='w3-container'></div>");
+  //divpadre=document.createElement("div");
 
-  img=document.createElement("img");
-  if(noticia.urlToImage==null)
-    img.setAttribute("src", "img/imagennodisponible.png");
-  else 
-  img.setAttribute("src", noticia.urlToImage); 
-  boton=document.createElement("button");
-  boton.addEventListener("click",()=>mostrarDetalle(noticia),false )
+  img=$("<img class='imgpadre'></img>");
+  boton=$("<button class='botonpadre'></button>");
+  titulo=$("<h3></h3>");
+
+
+  divpadre.appendTo($("#maestro"));
+  titulo.appendTo($("#w3-container"));
+  img.appendTo($("#w3-container"));
+  boton.appendTo($("#w3-container"));
+
+  //divpadre.setAttribute("class", "w3-container-noticia");
+  //divpadre.setAttribute("id", "w3-container");
+
+  //img=document.createElement("img");
+  if(noticia.urlToImage==null){
+    //img.setAttribute("src", "img/imagennodisponible.png");
+    $("imgpadre").attr("src", "img/imagennodisponible.png");
+  }
+  else{
+    //img.setAttribute("src", noticia.urlToImage); 
+    $("imgpadre").attr("src", noticia.urlToImage);
+  }
+
+  //boton=document.createElement("button");
+  //boton.addEventListener("click",()=>mostrarDetalle(noticia),false );
+  $("botonpadre").click(mostrarDetalle(noticia));
+
   boton.innerHTML="Más información";
-  titulo=document.createElement("h3");
+  //titulo=document.createElement("h3");
   titulo.innerHTML= noticia.title; 
 
-  divpadre.append(titulo);
-  divpadre.append(img);
-  divpadre.append(boton);
-  $("#maestro").append(divpadre);
+  //divpadre.append(titulo);
+  //divpadre.append(img);
+  //divpadre.append(boton);
+  //$("#maestro").append(divpadre);
   //maestro= document.getElementById("maestro");
   // maestro.append(divpadre);
 }
