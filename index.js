@@ -78,7 +78,6 @@ function loadDoc(url){
     }
 
 function mostrarTitulo(datos){
-
   midiv=$("<div></div>");
   $.each(datos.articles, (i)=>{
   midiv.append("<li>"+datos.articles[i].title+"</li>");
@@ -99,8 +98,8 @@ function crearCard(noticia){
   img.appendTo($("#w3-container"));
   boton.appendTo($("#w3-container"));
 
-  !noticia.urlToImage ? $("imgpadre").attr("src", "img/imagennodisponible.png"):
-  $("imgpadre").attr("src", noticia.urlToImage);
+  !noticia.urlToImage ? $(".imgpadre").attr("src", "img/imagennodisponible.png"):
+  $(".imgpadre").attr("src", noticia.urlToImage);
   $(".botonpadre").click(mostrarDetalle(noticia));
   $(".botonpadre").text("Mas informacion");
   $(".mih3").text(noticia.title);
